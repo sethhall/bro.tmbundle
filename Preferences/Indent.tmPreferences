@@ -3,34 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Indent</string>
+	<string>Indentation Rules</string>
 	<key>scope</key>
 	<string>source.bro</string>
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
-		<string>(?x)
-	    ^ (.*\*/)? \s* \} ( [^}{"']* \{ | \s* while \s* \( .* )? [;\s]* (//.*|/\*.*\*/\s*)? $
-	|   ^ \s* (public|private|protected): \s* $
-	|   ^ \s* @(public|private|protected) \s* $
-	</string>
+		<string>^\s*\}[;\s]*$</string>
 		<key>increaseIndentPattern</key>
 		<string>(?x)
-	    ^ .* \{ [^}"']* $
-	|   ^ \s* (public|private|protected): \s* $
-	|   ^ \s* @(public|private|protected) \s* $
-	</string>
-		<key>indentNextLinePattern</key>
-		<string>(?x)^
-	    (?! .* [;:{}]                   # do not indent when line ends with ;, :, {, or }
-	        \s* (//|/[*] .* [*]/ \s* $) #  …account for potential trailing comment
-	    |   @(public|private|protected) # do not indent after obj-c data access keywords
-	    )
-	    .* [^\s;:{}] \s* $              # indent next if this one isn’t
-	                                    #  terminated with ;, :, {, or }
+	    ^ \s* (function|event|if|for) [^}"']* $
 	</string>
 		<key>unIndentedLinePattern</key>
-		<string>^\s*((/\*|\*/|//|#|template\b.*?&gt;(?!\(.*\))|@protocol|@interface(?!.*\{)|@implementation|@end).*)?$</string>
+		<string>^\s*(@(load|ifn?def|endif))?$</string>
 	</dict>
 	<key>uuid</key>
 	<string>5830E0BA-8A4B-41F3-BCA4-DB25F697FE78</string>

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>event ${1:bro_init}(${2:args})
+	<string>event ${1:bro_init}(${2:${3:arg_name}: ${4:arg_type}})
 	{
-	$4
+	${5:#code}
 	}</string>
 	<key>name</key>
 	<string>event</string>
