@@ -99,7 +99,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(\s*(u?sec|min|hour|day)s?)?\b</string>
+			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(/(tcp|udp|icmp)|(\s*(u?sec|min|hour|day)s?))?\b</string>
 			<key>name</key>
 			<string>constant.numeric.c</string>
 		</dict>
