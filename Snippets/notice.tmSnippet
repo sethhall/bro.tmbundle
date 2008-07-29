@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>NOTICE([\$note=$1,
+        \$msg=fmt("$3", $4),
+        \$conn=${5:c},
+        \$sub=fmt("$6", $7)]);</string>
+	<key>name</key>
+	<string>notice</string>
+	<key>scope</key>
+	<string>source.bro</string>
+	<key>tabTrigger</key>
+	<string>notice</string>
+	<key>uuid</key>
+	<string>04BA7C15-B6D3-4C10-A44D-E15B5DF13E5E</string>
+</dict>
+</plist>

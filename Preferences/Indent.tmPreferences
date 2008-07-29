@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Indent</string>
+	<key>scope</key>
+	<string>source.bro</string>
+	<key>settings</key>
+	<dict>
+		<key>decreaseIndentPattern</key>
+		<string>(?x)
+	    ^ (.*\*/)? \s* \} ( [^}{"']* \{ | \s* while \s* \( .* )? [;\s]* (//.*|/\*.*\*/\s*)? $
+	</string>
+		<key>increaseIndentPattern</key>
+		<string>(?x)
+	    ^ .* \{ [^}"']* $
+	    | ( \{ (?!  [^}]*+ \} )
+	</string>
+		<key>indentNextLinePattern</key>
+		<string>(?x)^
+	    .* [^\s;:{}] \s* $              # indent next if this one isn’t
+	    (?! .* [;:{}]                   # do not indent when line ends with ;, :, {, or }
+	        \s* (#|/[*] .* [*]/ \s* $) #  …account for potential trailing comment
+	    )
+	                                    #  terminated with ;, :, {, or }
+	</string>
+		<key>unIndentedLinePattern</key>
+		<string>^\s*((#|@ifn?def|@else|@endif|@end|@load).*)?$</string>
+	</dict>
+	<key>uuid</key>
+	<string>5830E0BA-8A4B-41F3-BCA4-DB25F697FE78</string>
+</dict>
+</plist>

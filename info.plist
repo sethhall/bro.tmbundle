@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>name</key>
 	<string>Bro</string>
+	<key>ordering</key>
+	<array>
+		<string>2FF24728-1643-44D5-A4AC-FEE7CC17B0BA</string>
+		<string>E0A88EBF-4F1D-4AB6-8A3C-ADC3001710AE</string>
+		<string>55415F2B-0A9E-4D4A-991C-1616CEE9B6EE</string>
+		<string>3171E1C5-10B5-46DB-9E91-445F42A1AF61</string>
+		<string>04BA7C15-B6D3-4C10-A44D-E15B5DF13E5E</string>
+	</array>
 	<key>uuid</key>
 	<string>B81897FA-1A79-48AB-9510-31D7EB38FCF1</string>
 </dict>
