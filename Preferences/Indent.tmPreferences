@@ -11,22 +11,26 @@
 		<key>decreaseIndentPattern</key>
 		<string>(?x)
 	    ^ (.*\*/)? \s* \} ( [^}{"']* \{ | \s* while \s* \( .* )? [;\s]* (//.*|/\*.*\*/\s*)? $
+	|   ^ \s* (public|private|protected): \s* $
+	|   ^ \s* @(public|private|protected) \s* $
 	</string>
 		<key>increaseIndentPattern</key>
 		<string>(?x)
 	    ^ .* \{ [^}"']* $
-	    | ( \{ (?!  [^}]*+ \} )
+	|   ^ \s* (public|private|protected): \s* $
+	|   ^ \s* @(public|private|protected) \s* $
 	</string>
 		<key>indentNextLinePattern</key>
 		<string>(?x)^
-	    .* [^\s;:{}] \s* $              # indent next if this one isn’t
 	    (?! .* [;:{}]                   # do not indent when line ends with ;, :, {, or }
-	        \s* (#|/[*] .* [*]/ \s* $) #  …account for potential trailing comment
+	        \s* (//|/[*] .* [*]/ \s* $) #  …account for potential trailing comment
+	    |   @(public|private|protected) # do not indent after obj-c data access keywords
 	    )
+	    .* [^\s;:{}] \s* $              # indent next if this one isn’t
 	                                    #  terminated with ;, :, {, or }
 	</string>
 		<key>unIndentedLinePattern</key>
-		<string>^\s*((#|@ifn?def|@else|@endif|@end|@load).*)?$</string>
+		<string>^\s*((/\*|\*/|//|#|template\b.*?&gt;(?!\(.*\))|@protocol|@interface(?!.*\{)|@implementation|@end).*)?$</string>
 	</dict>
 	<key>uuid</key>
 	<string>5830E0BA-8A4B-41F3-BCA4-DB25F697FE78</string>
