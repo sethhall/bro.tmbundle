@@ -105,7 +105,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>\b[^0-9]/</string>
+			<string>[^0-9]/</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -115,7 +115,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>/\b</string>
+			<string>/</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
