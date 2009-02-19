@@ -105,41 +105,6 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>[^0-9]/</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.bro</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>/</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.bro</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.regex.bro</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#string_escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#string_placeholder</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
 			<string>"</string>
 			<key>beginCaptures</key>
 			<dict>
@@ -201,6 +166,41 @@
 				<dict>
 					<key>include</key>
 					<string>#string_escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>((^|[=\(\|])[[:blank:]]*)/</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.c</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>/[[:blank:]]*[|]?</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.c</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.regex.bro</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#string_escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string_placeholder</string>
 				</dict>
 			</array>
 		</dict>
