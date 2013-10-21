@@ -8,30 +8,16 @@
 	</array>
 	<key>foldingStartMarker</key>
 	<string>(?x)
-		 /\*\*(?!\*)
-		|^(?![^{]*?//|[^{]*?/\*(?!.*?\*/.*?\{)).*?\{\s*($|//|/\*(?!.*?\*/.*\S))
-		|^\@ifn?def
+		|^(@if(n?def)?)
 	</string>
 	<key>foldingStopMarker</key>
-	<string>(?&lt;!\*)\*\*/|^\s*\}|^\@endif</string>
+	<string>^@endif</string>
 	<key>keyEquivalent</key>
 	<string>@B</string>
 	<key>name</key>
 	<string>Bro Policy</string>
 	<key>patterns</key>
 	<array>
-		<dict>
-			<key>include</key>
-			<string>#preprocessor-rule-enabled</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#preprocessor-rule-disabled</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#preprocessor-rule-other</string>
-		</dict>
 		<dict>
 			<key>begin</key>
 			<string>#</string>
@@ -74,13 +60,13 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(?:function|event)\s*(.*)\s*\((.*)\).*$</string>
+			<string>^\s*(?:function|hook|event)\s*(.*)\s*\((.*)\).*$</string>
 			<key>name</key>
 			<string>meta.function.bro</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(bool|enum|double|int|count|counter|port|addr|subnet|any|file|interval|time|timer|string|table|vector|set|record|pattern||hook)\b</string>
+			<string>\b(bool|enum|double|int|count|port|addr|subnet|any|file|interval|time|string|table|vector|set|record|pattern|hook)\b</string>
 			<key>name</key>
 			<string>storage.type.bro</string>
 		</dict>
@@ -92,21 +78,21 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(\|\|?|&amp;&amp;|(&gt;|&lt;|!)=?|==|!?in)\b</string>
+			<string>\b(\||&amp;&amp;|(&gt;|&lt;|!)=?|==|!?in)\b</string>
 			<key>name</key>
 			<string>keyword.operator.bro</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(T|F|t|f)\b</string>
+			<string>\b(T|F)\b</string>
 			<key>name</key>
 			<string>constant.language.bro</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(/(tcp|udp|icmp)|(\s*(u?sec|min|hour|day)s?))?\b</string>
+			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(/(tcp|udp|icmp)|(\s*(u?sec|min|hr|day)s?))?\b</string>
 			<key>name</key>
-			<string>constant.numeric.c</string>
+			<string>constant.numeric.bro</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -116,7 +102,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.begin.c</string>
+					<string>punctuation.definition.string.begin.bro</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -126,7 +112,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.end.c</string>
+					<string>punctuation.definition.string.end.bro</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -145,7 +131,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>'</string>
+			<string>/</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -155,38 +141,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>'</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.c</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.single.bro</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#string_escaped_char</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>((^|[=\(\|])[[:blank:]]*)/</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.c</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>/[[:blank:]]*[|]?</string>
+			<string>/</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -211,23 +166,35 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^\s*@load\b\s+</string>
+			<string>^\s*(\@load(-sigs)?)\b</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.import.include.bro</string>
+					<string>keyword.other.special-method.bro</string>
 				</dict>
 			</dict>
 			<key>end</key>
 			<string>(?=(?:\#))|$</string>
 			<key>name</key>
-			<string>meta.preprocessor.c.include</string>
+			<string>meta.preprocessor.bro.load</string>
 		</dict>
 		<dict>
-			<key>include</key>
-			<string>#pragma-mark</string>
+			<key>begin</key>
+			<string>^\s*(\@endif|\@if(?:n?def)?).*$</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.special-method.bro</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>$</string>
+			<key>name</key>
+			<string>meta.preprocessor.bro.if</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -235,11 +202,11 @@
 		<key>disabled</key>
 		<dict>
 			<key>begin</key>
-			<string>^\s*@ifn?def\b.*$</string>
+			<string>^\s*\@if(n?def)?\b.*$</string>
 			<key>comment</key>
 			<string>eat nested preprocessor ifdefs</string>
 			<key>end</key>
-			<string>^\s*@endif\b.*$</string>
+			<string>^\s*\@endif\b.*$</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -252,50 +219,25 @@
 				</dict>
 			</array>
 		</dict>
-		<key>pragma-mark</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>meta.preprocessor.c</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.control.import.pragma.c</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>meta.toc-list.pragma-mark.c</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^\s*(#\s*(pragma\s+mark)\s+(.*))</string>
-			<key>name</key>
-			<string>meta.section</string>
-		</dict>
 		<key>preprocessor-rule-other</key>
 		<dict>
 			<key>begin</key>
-			<string>^\s*((@ifn?def)\b.*?(?:(?=(?://))|$))</string>
+			<string>^\s*(@if(n?def)?)\b.*?(?:(?=)|$)</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.preprocessor.c</string>
+					<string>meta.preprocessor.bro</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.preprocessor.c.include</string>
+					<string>meta.preprocessor.bro</string>
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>^\s*((@endif)\b).*$</string>
+			<string>^\s*(@endif)\b.*$</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -312,13 +254,13 @@
 					<key>match</key>
 					<string>\\(\\|[abefnprtv'"?]|[0-3]\d{,2}|[4-7]\d?|x[a-fA-F0-9]{,2})</string>
 					<key>name</key>
-					<string>constant.character.escape.c</string>
+					<string>constant.character.escape.bro</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>\\.</string>
 					<key>name</key>
-					<string>invalid.illegal.unknown-escape.c</string>
+					<string>invalid.illegal.unknown-escape.bro</string>
 				</dict>
 			</array>
 		</dict>
@@ -338,13 +280,13 @@
 						[diouxXDOUeEfFgGaACcSspn%]           # conversion type
 					</string>
 					<key>name</key>
-					<string>constant.other.placeholder.c</string>
+					<string>constant.other.placeholder.bro</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>%</string>
 					<key>name</key>
-					<string>invalid.illegal.placeholder.c</string>
+					<string>invalid.illegal.placeholder.bro</string>
 				</dict>
 			</array>
 		</dict>
