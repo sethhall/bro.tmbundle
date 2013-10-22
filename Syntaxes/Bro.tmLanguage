@@ -7,15 +7,13 @@
 		<string>bro</string>
 	</array>
 	<key>foldingStartMarker</key>
-	<string>(?x)
-		|^(@if(n?def)?)
-	</string>
+	<string>^(\@if(n?def)?)</string>
 	<key>foldingStopMarker</key>
-	<string>^@endif</string>
+	<string>^\@endif</string>
 	<key>keyEquivalent</key>
 	<string>@B</string>
 	<key>name</key>
-	<string>Bro Policy</string>
+	<string>Bro</string>
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -36,7 +34,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(break|case|continue|else|for|if|return|switch|next|when)\b</string>
+			<string>\b(break|case|continue|else|for|if|return|switch|next|when|timeout|schedule)\b</string>
 			<key>name</key>
 			<string>keyword.control.bro</string>
 		</dict>
@@ -72,13 +70,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(global|const|redef|local|optional|rotate_interval|rotate_size|add_func|del_func|expire_func|expire_create|expire_read|expire_write|persistent|synchronized|encrypt|mergeable|priority|group|type_column|log|error_handler)\b</string>
+			<string>\b(global|const|redef|local|&amp;(optional|rotate_interval|rotate_size|add_func|del_func|expire_func|expire_create|expire_read|expire_write|persistent|synchronized|encrypt|mergeable|priority|group|type_column|log|error_handler))\b</string>
 			<key>name</key>
 			<string>storage.modifier.bro</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(\||&amp;&amp;|(&gt;|&lt;|!)=?|==|!?in)\b</string>
+			<string>\s*(\||&amp;&amp;|(&gt;|&lt;|!)=?|==)\s*|\b(!?in)\b</string>
 			<key>name</key>
 			<string>keyword.operator.bro</string>
 		</dict>
@@ -137,7 +135,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.begin.c</string>
+					<string>punctuation.definition.string.begin.bro</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -147,7 +145,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.end.c</string>
+					<string>punctuation.definition.string.end.bro</string>
 				</dict>
 			</dict>
 			<key>name</key>

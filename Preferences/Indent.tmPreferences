@@ -8,19 +8,16 @@
 	<string>source.bro</string>
 	<key>settings</key>
 	<dict>
+		<!--
 		<key>decreaseIndentPattern</key>
 		<string>^\s*\}[;\s]*$</string>
 		<key>increaseIndentPattern</key>
-		<string>(?x)
-	    ^ .* \{ [^}"']* $</string>
+		<string>^.*\{[^}"']*$</string>
 		<key>unIndentedLinePattern</key>
-		<string>^\s*(@(load|ifn?def|endif))?$</string>
-
+		<string>^\s*(\@(load|if(?:n?def)?|endif))?$</string>
 		<key>bracketIndentNextLinePattern</key>
-		<string>(?x)
-		^ \s* \b(if|while|else)\b [^;]* $
-		| ^ \s* \b(for)\b .* $
-		</string>
+		<string>^\s*(if|else(?:\s+if)?|for)\b[^;]*$</string>
+		-->
 	</dict>
 	<key>uuid</key>
 	<string>5830E0BA-8A4B-41F3-BCA4-DB25F697FE78</string>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>when ( ${1} )
+	{
+	${2:#code}
+	}
+timeout ${3}
+	{
+	${4:#code}
+	}
+</string>
+	<key>name</key>
+	<string>when statement</string>
+	<key>scope</key>
+	<string>source.bro</string>
+	<key>tabTrigger</key>
+	<string>when</string>
+	<key>uuid</key>
+	<string>DEAD11C5-10B5-46DB-9E91-445F42A1AF61</string>
+</dict>
+</plist>
